@@ -18,23 +18,33 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-        header {
-            background: #8AAAE5;
-            padding: 22px 0;
-            text-align: center;
-            color: white;
-            font-size: 32px;
-            font-weight: 700;
-        }
-        .container {
-            max-width: 860px;
-            margin: 40px auto;
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
+header {
+  background: rgba(255, 255, 255, 0.06); /* nền trong suốt nhẹ */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 22px 0;
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* hiệu ứng shadow */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* viền nhẹ nếu muốn */
+  text-shadow: 0 0 6px #aeefff, 0 0 12px #00ffff; /* glow nhẹ */
+}
+
+.container {
+  max-width: 860px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.06); /* nền trong suốt nhẹ */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* đổ bóng sâu hơn */
+  color: white;
+}
+
+
         .avatar {
             width: 200px;
             height: 200px;
@@ -76,16 +86,173 @@
             text-decoration: none;
             font-size: 16px;
         }
+        .gradient-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+body {
+    margin: 0;
+    background: #0a0a0a; /* nền đen */
+    font-family: sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  .gradient-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color), transparent 70%);
+    mix-blend-mode: screen;
+    opacity: 0.6;
+    filter: blur(80px);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+  }
+.neon-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #65aceb;
+  text-shadow:
+    0 0 5px #65aceb,
+    0 0 10px #65aceb,
+    0 0 20px #65aceb,
+    0 0 40px #65aceb;
+  margin-top: 24px;
+  font-family: 'Segoe UI', sans-serif;
+}
+.neon-highlight {
+  font-size: 18px;
+  font-weight: bold;
+  color: #dc92b3;
+  text-shadow:
+    0 0 5px #dc92b3,
+    0 0 10px #dc92b3,
+    0 0 20px #dc92b3,
+    0 0 40px #dc92b3;
+  margin-top: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: left;
+}
+.name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #aeefff;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #00ffff;
+  box-shadow: 0 0 8px #00ffff;
+  transition: width 0.3s ease;
+}
+
+.name:hover {
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.name:hover::after {
+  width: 100%;
+}
+.ripple-btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid #00ffff;
+  border-radius: 12px;
+  box-shadow: 0 0 8px #00ffff;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.ripple-btn:hover {
+  transform: scale(1.05);
+}
+
+.ripple-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  animation: ripple-ring 1.2s ease-out;
+  z-index: 0;
+}
+
+@keyframes ripple-ring {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  50% {
+    width: 200px;
+    height: 200px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+
+
     @keyframes gradientMove {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+    
         </style>
 </head>
 <body>
 
 <header>Nguyễn Hưng - Trang Cá Nhân</header>
+<div class="gradient-container">
+  <div class="glow" style="--color: #00f;"></div>
+  <div class="glow" style="--color: #f0f;"></div>
+  <div class="glow" style="--color: #0ff;"></div>
+  <div class="glow" style="--color: #00ff40;"></div>
+</div>
+
+
 
 <div class="container" style="text-align:left;">
     <div style="display:flex; align-items:flex-start; gap:32px; flex-wrap:wrap;">
@@ -93,35 +260,47 @@
             <h2 style="text-align:center;">Nguyễn Hưng</h2>
             <p class="subtitle" style="text-align:center;">Học sinh lớp 12A1 - Thành viên tổ 3</p>
 
-            <div class="section-title"; style="color: #65aceb">Mình là 1 người:</div>
+            <div class="neon-title">Mình là 1 người:</div>
             <ul>
                 <li>Luôn tràn đầy năng lượng tích cực và hòa đồng với mọi người xung quanh.</li>
                 <li>Hay giúp đỡ bạn bè khi gặp vấn đề khó trong học tập.</li>
             </ul>
 
-            <div class="section-title"; style="color: #65aceb;">Sở thích:</div>
+            <div class="neon-title">Sở thích:</div>
             <ul>
                 <li>Tận hưởng những phút giây vui đùa cùng mèo.</li>
                 <li>Không ngừng học hỏi và khám phá những bài toán khó để vượt lên chính mình.</li>
             </ul>
 
-            <div class="section-title"; style="color: #65aceb;">Ước mơ:</div>
+            <div class="neon-title">Ước mơ:</div>
             <ul>
                 <li>Xây dựng một gia đình nhỏ hạnh phúc, bên cạnh một khu vườn đầy hoa và những chú mèo đáng yêu cùng chung sống.</li>
             </ul>
 
-            <div class="section-title"; style="color: #dc92b3; font-size:medium;font-family:'Segoe UI' ;">Sau đây là các bài thực hành mình đã làm:</div>
-            <a href="clb(9).html"; style="font-family: Verdana;font-size:small;color: #f25b50;" > <strong>Lịch hoạt động câu lạc bộ</strong> </a> <br>
-            <a href="dsclb(7).html" ; style="font-family: Verdana;font-size:small;color:#f25b50" > <strong>Danh sách câu lạc bộ</strong></a>
+            <div class="neon-highlight">Sau đây là các bài thực hành mình đã làm:</div>
+                <a class="name" href="clb(9).html"; style="font-family: Verdana;font-size:small;" > <strong>Lịch hoạt động câu lạc bộ</strong> </a> <br>
+                <a class="name" href="dsclb(7).html" ; style="font-family: Verdana;font-size:small;" > <strong>Danh sách câu lạc bộ</strong></a>
         </div>
-
         <div style="flex-shrink:0;">
             <img src="anh/hung.jpg" alt="Ảnh cá nhân" class="avatar" style="transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.2);" />
         </div>
     </div>
 
     <div style="text-align:center; margin-top:30px;">
-        <a href="index.html" class="btn" style="transition:0.3s;">Quay lại Trang Chủ</a>
+        <a href="index.html" class="ripple-btn">Quay lại Trang Chủ</a>
     </div>
+<script>
+  const glows = document.querySelectorAll('.glow');
+  document.addEventListener('mousemove', (e) => {
+    glows.forEach((glow, i) => {
+      const offset = i * 50;
+      glow.style.left = `${e.clientX - 150 + offset}px`;
+      glow.style.top = `${e.clientY - 150 + offset}px`;
+    });
+  });
+</script>
+
+
+
 </body>
 </html>
