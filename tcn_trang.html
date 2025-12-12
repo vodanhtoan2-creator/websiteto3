@@ -213,7 +213,26 @@ body {
   animation: ripple-ring 1.2s ease-out;
   z-index: 0;
 }
+    #music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
 @keyframes ripple-ring {
   0% {
     width: 0;
@@ -243,7 +262,27 @@ body {
         </style>
 </head>
 <body>
+<audio id="bgm" autoplay loop muted>
+    <source src="audio/trang.mp3" type="audio/mpeg">
+</audio>
 
+<!-- Nút bật/tắt -->
+<div id="music-btn">🔊</div>
+
+<script>
+    const bgm = document.getElementById("bgm");
+    const btn = document.getElementById("music-btn");
+
+    btn.addEventListener("click", () => {
+        if (bgm.muted) {
+            bgm.muted = false;
+            btn.innerHTML = "🔇";  // icon tắt
+        } else {
+            bgm.muted = true;
+            btn.innerHTML = "🔊";  // icon bật
+        }
+    });
+</script>
 <header>Tô Huyền Trang - Trang Cá Nhân</header>
 <div class="gradient-container">
   <div class="glow" style="--color: #00f;"></div>
