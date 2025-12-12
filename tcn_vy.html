@@ -262,25 +262,14 @@ body {
         </style>
 </head>
 <body>
-<audio id="bgm" autoplay loop muted>
+<audio id="music" autoplay loop muted>
     <source src="audio/vy.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Nút bật/tắt -->
-<div id="music-btn">🔊</div>
-
 <script>
-    const bgm = document.getElementById("bgm");
-    const btn = document.getElementById("music-btn");
-
-    btn.addEventListener("click", () => {
-        if (bgm.muted) {
-            bgm.muted = false;
-            btn.innerHTML = "🔇";  // icon tắt
-        } else {
-            bgm.muted = true;
-            btn.innerHTML = "🔊";  // icon bật
-        }
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
     });
 </script>
 <header>Nguyễn Thị Thanh Vy - Trang Cá Nhân</header>
