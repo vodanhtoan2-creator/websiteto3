@@ -243,7 +243,16 @@ body {
         </style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/ngan.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
 <header>Hoàng Thị Thanh Ngân - Trang Cá Nhân</header>
 <div class="gradient-container">
   <div class="glow" style="--color: #00f;"></div>
