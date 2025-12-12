@@ -213,6 +213,26 @@ body {
   animation: ripple-ring 1.2s ease-out;
   z-index: 0;
 }
+ #music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn: hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
 
 @keyframes ripple-ring {
   0% {
@@ -243,7 +263,16 @@ body {
         </style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/dung.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
 <header>Hồ Nguyễn Yến Dung - Trang Cá Nhân</header>
 <div class="gradient-container">
   <div class="glow" style="--color: #00f;"></div>
