@@ -1,27 +1,152 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>phương trình bậc 2</title>
-    </head>
-    <body style="margin-left: 350px;">
-        <h1 style="color: rgb(255, 3, 3);"> Biện luận số nghiệm của phương trình bậc 2</h1>
-        <h2  style="color: rgb(102, 1, 12);"><span style="color: rgb(185, 1, 1); font-size: larger;">Bài toán:</span> Xác định số nghiệm của phương trình ax<sup>2</sup> + bx + c = 0 (a!=0)</h2>
-        <h2><span style="color: rgb(185, 1, 1); font-size: larger;">Cách làm:</span> </h2>
-        <ol style="font-size: large;font-family:'Verdana';">
-            <li><strong>B<sub>1</sub></strong>: Xác định hệ số a, b và c</li>
-            <li><strong>B<sub>2</sub></strong>: Tính <strong>delta</strong> = b<sup>2</sup> - 4ac</li>
-            <li><strong>B<sub>3</sub></strong>: Kết luận</li>
-                <ul style="list-style-type:disc;">
-                    <li>Nếu <strong>delta</strong> < 0: phương trình <em>  vô nghiệm</em></li>
-                    <li>Nếu <strong>delta</strong> = 0: phương trình có <em> nghiệm duy nhất</em></li>
-                    <li>Nếu <strong>delta</strong> > 0: phương trình có <em> hai nghiệm phân biệt</em></li>
-                </ul>
-        </ol>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_ngan.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8">
+  <title>Phương trình bậc 2</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #598ea5, #203a43, #5994ad); /* nền tối gradient */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    .glass {
+      width: 850px;
+      padding: 40px 50px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    h1 {
+      text-align: center;
+      font-size: 34px;
+      color: #aeafff;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+    h2 {
+      margin-top: 25px;
+      font-size: 22px;
+      color: #ffe893;
+    }
+    h2 span {
+      color: #ff9f43;
+      font-weight: bold;
+    }
+    ol {
+      font-size: 18px;
+      margin-left: 20px;
+    }
+    ol li {
+      margin: 12px 0;
+    }
+    ul.sub {
+      list-style-type: disc;
+      margin-left: 40px;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+    .footer {
+      margin-top: 35px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .footer a {
+      text-decoration: none;
+      color: #ffdf6c;
+      padding: 10px 22px;
+      border: 1px solid #ffdf6c;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .footer a:hover {
+      background: #ffdf6c;
+      color: #000;
+    }
+    ul {
+      margin-top: 40px;
+      font-family: 'Segoe UI Black';
+      font-size: 16px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+    ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #3498db;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    ul li a:hover {
+      background: #1d6fa5;
+      transform: translateY(-2px);
+    }
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-    </body>
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+  </style>
+</head>
+<body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/ngan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+  <div class="glass">
+    <h1>Biện luận số nghiệm của phương trình bậc 2</h1>
+
+    <h2><span>Bài toán:</span> Xác định số nghiệm của phương trình ax<sup>2</sup> + bx + c = 0 (a ≠ 0)</h2>
+
+    <h2><span>Cách làm:</span></h2>
+    <ol>
+      <li><strong>B<sub>1</sub></strong>: Xác định hệ số a, b và c</li>
+      <li><strong>B<sub>2</sub></strong>: Tính <strong>Δ</strong> = b<sup>2</sup> - 4ac</li>
+      <li><strong>B<sub>3</sub></strong>: Kết luận
+        <ul class="sub">
+          <li>Nếu Δ &lt; 0: phương trình <em>vô nghiệm</em></li>
+          <li>Nếu Δ = 0: phương trình có <em>nghiệm duy nhất</em></li>
+          <li>Nếu Δ &gt; 0: phương trình có <em>hai nghiệm phân biệt</em></li>
+        </ul>
+      </li>
+    </ol>
+
+<ul>
+  <li><a href="tcn_ngan.html"><strong>Quay Lại</strong></a></li>
+  <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
+</ul>
+
+  </div>
+</body>
 </html>
