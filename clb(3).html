@@ -1,74 +1,214 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Lịch hoạt động CLB Thể thao</title>
- 
+<meta charset="UTF-8">
+<title>Lịch hoạt động CLB Thể thao</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:linear-gradient(135deg,#e0ecff,#f7fbff);
+  color:#1f2937;
+}
+
+h3{
+  text-align:center;
+  margin:50px 0 30px;
+  font-size:26px;
+  letter-spacing:1px;
+  color:#0f2a66;
+}
+
+/* ===== TABLE WRAPPER ===== */
+.table-wrap{
+  display:flex;
+  justify-content:center;
+}
+
+/* ===== TABLE ===== */
+table{
+  border-collapse:separate;
+  border-spacing:0;
+  width:85%;
+  max-width:900px;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(10px);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 25px 40px rgba(0,0,0,.15);
+}
+
+th,td{
+  padding:14px 10px;
+  text-align:center;
+}
+
+/* HEADER */
+thead tr:first-child th{
+  background:linear-gradient(135deg,#0f4c81,#2563eb);
+  color:#fff;
+  font-size:15px;
+}
+
+thead tr:last-child th{
+  background:#dbeafe;
+  color:#1e3a8a;
+  font-weight:600;
+}
+
+/* BODY */
+tbody tr{
+  transition:.25s;
+}
+
+tbody tr:hover{
+  background:#eef5ff;
+}
+
+.subject{
+  background:#bfdbfe;
+  font-weight:600;
+  color:#1e40af;
+}
+
+.check{
+  font-weight:700;
+  color:#2563eb;
+}
+
+/* BORDER FIX */
+th:first-child{border-top-left-radius:18px}
+th:last-child{border-top-right-radius:18px}
+
+/* ===== NAV ===== */
+.nav{
+  margin:60px 0 40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.nav a{
+  text-decoration:none;
+  padding:12px 26px;
+  border-radius:999px;
+  background:#fff;
+  color:#1e3a8a;
+  font-weight:600;
+  box-shadow:0 10px 20px rgba(0,0,0,.12);
+  transition:.3s;
+}
+
+.nav a:hover{
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:#fff;
+  transform:translateY(-3px);
+}
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+/* RESPONSIVE */
+@media(max-width:768px){
+  table{width:95%;font-size:14px}
+}
+</style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/trang.mp3" type="audio/mpeg">
+</audio>
 
-<h3 style="text-align: center;">Lịch hoạt động CLB Thể thao</h3>
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<h3>Lịch hoạt động CLB Thể thao</h3>
 
-<table border ="1" style="border-collapse: collapse;margin: auto;text-align: center">
-    <tr bgcolor = #0154b4 ; style="color: rgb(255, 255, 255);" >
-        <th rowspan="2"  width="80">Bộ môn</th>
-        <th rowspan="2"  width="150">GV phụ trách</th>
-        <th colspan="5">Ngày</th>
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Bộ môn</th>
+      <th rowspan="2">GV phụ trách</th>
+      <th colspan="5">Ngày</th>
     </tr>
-    <tr bgcolor = #7ce2f2>
-        <th>Thứ 2</th>
-        <th>Thứ 3</th>
-        <th>Thứ 4</th>
-        <th>Thứ 5</th>
-        <th>Thứ 6</th>
+    <tr>
+      <th>Thứ 2</th>
+      <th>Thứ 3</th>
+      <th>Thứ 4</th>
+      <th>Thứ 5</th>
+      <th>Thứ 6</th>
     </tr>
+  </thead>
 
-    <tr >
-        <td bgcolor ="#a1eaf7">Bóng đá</td>
-        <td >Thầy Khải</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td bgcolor ="#a1eaf7">Bóng chuyền</td>
-        <td >Cô Lan</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td bgcolor ="#a1eaf7">Bóng rổ</td>
-        <td >Thầy Vũ</td>
-        <td></td><td></td><td>X</td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td rowspan="3" bgcolor ="#a1eaf7">Võ thuật</td>
-        <td >Thầy Hoàng – Karatedo</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
+  <tbody>
+    <tr>
+      <td class="subject">Bóng đá</td>
+      <td>Thầy Khải</td>
+      <td></td><td></td><td></td><td></td><td></td>
     </tr>
 
-    <tr >
-        <td >Thầy Đức – Taekwondo</td>
-        <td></td><td></td><td></td><td></td><td></td>
+    <tr>
+      <td class="subject">Bóng chuyền</td>
+      <td>Cô Lan</td>
+      <td></td><td class="check">✓</td><td></td><td></td><td></td>
     </tr>
 
-    <tr >
-        <td >Thầy Thắng – Vovinam</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
+    <tr>
+      <td class="subject">Bóng rổ</td>
+      <td>Thầy Vũ</td>
+      <td></td><td></td><td class="check">✓</td><td></td><td></td>
     </tr>
 
-    <tr >
-        <td bgcolor ="#a1eaf7">Bơi</td>
-        <td >Cô Bích</td>
-        <td></td><td></td><td>X</td><td></td><td>X</td>
+    <tr>
+      <td class="subject" rowspan="3">Võ thuật</td>
+      <td>Thầy Hoàng – Karatedo</td>
+      <td></td><td class="check">✓</td><td></td><td></td><td></td>
     </tr>
 
+    <tr>
+      <td>Thầy Đức – Taekwondo</td>
+      <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+      <td>Thầy Thắng – Vovinam</td>
+      <td></td><td class="check">✓</td><td></td><td></td><td></td>
+    </tr>
+
+    <tr>
+      <td class="subject">Bơi</td>
+      <td>Cô Bích</td>
+      <td></td><td></td><td class="check">✓</td><td></td><td class="check">✓</td>
+    </tr>
+  </tbody>
 </table>
-    <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_trang.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-    </ul>
+</div>
+
+<div class="nav">
+  <a href="tcn_trang.html">Quay lại</a>
+  <a href="index.html">Trang chủ</a>
+</div>
+
 </body>
 </html>
-
-
