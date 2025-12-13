@@ -1,60 +1,150 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Danh sách câu lạc bộ</title>
-        <style>
-.avatar {
-    position: absolute;
-    right: 40px;      /* cách mép phải 20px */
-    top: 30%;         /* nằm giữa chiều dọc */
-    transform: translateY(-30%);
-    width: 400px;
-    border-radius: 12px; }
-        </style>
-    </head>
-    <body>
-        <div style="margin-left: 450px; font-size: larger;">
-            <h1 style="color: #080885;">DANH SÁCH CÂU LẠC BỘ</h1>
-            <ul>
-                <li > <strong style="color: #094dad;">Thể thao</strong> 
-                    <ol style="font-weight: 500;">
-                        <li style="color: #087fbf;">Bóng đá</li>
-                        <li style="color: #087fbf;">Bóng chuyền</li>
-                        <li style="color: #087fbf;">Bóng rổ</li>
-                        <li style="color: #087fbf;">Võ
-                            <ol type="a" ; style="font-weight: 400;">
-                                <li style="color: #7ce2f2;">Karatedo</li>
-                                <li style="color: #7ce2f2;">Taekwondo</li>
-                                <li style="color: #7ce2f2;">Vovinam</li>
-                            </ol>
-                        </li>
-                        <li style="color: #087fbf;">Bơi</li>
-                    </ol>
-                </li>
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách câu lạc bộ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(120deg, #f0f4ff, #e6f7ff);
+        }
 
-                <li > <strong style="color: #094dad;">Nghệ thuật</strong>
-                    <ol style="font-weight: 500;">
-                        <li style="color: #087fbf;">Mĩ thuật</li>
-                        <li style="color: #087fbf;"c>Nhiếp ảnh</li>
-                        <li style="color: #087fbf;">Âm thanh
-                            <ol type="a" ; style="font-weight: 400;">
-                                <li style="color: #7ce2f2;">Thanh nhạc</li>
-                                <li style="color: #7ce2f2;">Piano</li>
-                                <li style="color: #7ce2f2;">Violin</li>
-                            </ol>
-                        </li>
-                        <li style="color: #087fbf;">Khiêu vũ</li>
-                    </ol>
-                </li>
-            </ul>
-        </div>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_vy.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 40px;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        h1 {
+            color: #080885;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        .group-title {
+            color: #094dad;
+            font-size: 18px;
+        }
+
+        .item {
+            color: #087fbf;
+            font-weight: 500;
+        }
+
+        .sub-item {
+            color: #4ecde3;
+            font-weight: 400;
+        }
+
+        .image-box {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 360px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+        }
+
+        .nav {
+            margin: 40px auto 0;
+            max-width: 1100px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #033E8C;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .nav a:hover {
+            background: #033E8C;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="content">
+        <h1>DANH SÁCH CÂU LẠC BỘ</h1>
+        <ul>
+            <li><strong class="group-title">Thể thao</strong>
+                <ol>
+                    <li class="item">Bóng đá</li>
+                    <li class="item">Bóng chuyền</li>
+                    <li class="item">Bóng rổ</li>
+                    <li class="item">Võ
+                        <ol type="a">
+                            <li class="sub-item">Karatedo</li>
+                            <li class="sub-item">Taekwondo</li>
+                            <li class="sub-item">Vovinam</li>
+                        </ol>
+                    </li>
+                    <li class="item">Bơi</li>
+                </ol>
+            </li>
+
+            <li><strong class="group-title">Nghệ thuật</strong>
+                <ol>
+                    <li class="item">Mĩ thuật</li>
+                    <li class="item">Nhiếp ảnh</li>
+                    <li class="item">Âm nhạc
+                        <ol type="a">
+                            <li class="sub-item">Thanh nhạc</li>
+                            <li class="sub-item">Piano</li>
+                            <li class="sub-item">Violin</li>
+                        </ol>
+                    </li>
+                    <li class="item">Khiêu vũ</li>
+                </ol>
+            </li>
         </ul>
-        <div style="flex-shrink:0;">
-            <img src="anh/The-thao.jpg" alt="Ảnh" class="avatar" style="transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.2);" />
-        </div>
-    </body>
+    </div>
+
+    <div class="image-box">
+        <img src="anh/The-thao.jpg" alt="Ảnh thể thao" class="avatar">
+    </div>
+</div>
+
+<div class="nav">
+    <a href="tcn_vy.html">← Quay lại</a>
+    <a href="index.html">🏠 Trang chủ</a>
+</div>
+
+</body>
 </html>
