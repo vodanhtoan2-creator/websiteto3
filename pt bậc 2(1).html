@@ -1,26 +1,133 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>phương trình bậc 2</title>
-    </head>
-    <body style="margin-left: 350px;">
-        <h1 style="color: rgb(206, 0, 0);"> Biện luận số nghiệm của phương trình bậc 2</h1>
-        <h2><span style="color: red; font-size: larger;">Bài toán:</span> Xác định số nghiệm của phương trình ax<sup>2</sup> + bx + c = 0 (a!=0)</h2>
-        <h2><span style="color: red; font-size: larger;">Cách làm:</span> </h2>
-        <ol style="font-size: large;font-family:'Times New Roman';">
-            <li><strong>B<sub>1</sub></strong>: Xác định hệ số a, b và c</li>
-            <li><strong>B<sub>2</sub></strong>: Tính <strong>delta</strong> = b<sup>2</sup> - 4ac</li>
-            <li><strong>B<sub>3</sub></strong>: Kết luận</li>
-                <ul style="list-style-type: square;">
-                    <li>Nếu <strong>delta</strong> < 0: phương trình <em>  vô nghiệm</em></li>
-                    <li>Nếu <strong>delta</strong> = 0: phương trình có <em> nghiệm duy nhất</em></li>
-                    <li>Nếu <strong>delta</strong> > 0: phương trình có <em> hai nghiệm phân biệt</em></li>
-                </ul>
-        </ol>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_trang.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <title>Phương trình bậc 2</title>
+  <style>
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(to bottom right, #fce4ec, #e1bee7);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      padding: 30px 40px;
+      max-width: 800px;
+    }
+    h1 {
+      color: #d32f2f;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #2e7d32;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    h2 span {
+      color: #8e9a5f;
+      font-size: larger;
+      font-weight: bold;
+    }
+    ol {
+      font-size: 18px;
+      font-family: 'Times New Roman', serif;
+      margin-left: 20px;
+    }
+    ol li {
+      margin-bottom: 10px;
+    }
+    ul.sub {
+      list-style-type: disc;
+      margin-left: 40px;
+      margin-top: 8px;
+      font-size: 16px;
+    }
+    ul.links {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-family: 'Segoe UI Black';
+      font-size: 16px;
+      list-style: none;
+      padding: 0;
+    }
+    ul.links li a {
+      text-decoration: none;
+      color: #fff;
+      background: #7b1fa2;
+      padding: 10px 18px;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    ul.links li a:hover {
+      background: #4a148c;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/trang.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<div class="container">
+  <h1>Biện luận số nghiệm của phương trình bậc 2</h1>
+
+  <h2><span>Bài toán:</span> Xác định số nghiệm của phương trình ax<sup>2</sup> + bx + c = 0 (a ≠ 0)</h2>
+
+  <h2><span>Cách làm:</span></h2>
+  <ol>
+    <li><strong>B<sub>1</sub></strong>: Xác định hệ số a, b và c</li>
+    <li><strong>B<sub>2</sub></strong>: Tính <strong>Δ</strong> = b<sup>2</sup> - 4ac</li>
+    <li><strong>B<sub>3</sub></strong>: Kết luận
+      <ul class="sub">
+        <li>Nếu <strong>Δ</strong> &lt; 0: phương trình <em>vô nghiệm</em></li>
+        <li>Nếu <strong>Δ</strong> = 0: phương trình có <em>nghiệm duy nhất</em></li>
+        <li>Nếu <strong>Δ</strong> &gt; 0: phương trình có <em>hai nghiệm phân biệt</em></li>
+      </ul>
+    </li>
+  </ol>
+
+  <ul class="links">
+    <li><a href="tcn_trang.html"><strong>Quay Lại</strong></a></li>
+    <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
+  </ul>
+</div>
+
+</body>
 </html>
