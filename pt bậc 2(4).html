@@ -1,96 +1,116 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Phương trình bậc 2</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #598ea5, #203a43, #5994ad); /* nền tối gradient */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
-    .glass {
-      width: 850px;
-      padding: 40px 50px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-      border: 1px solid rgba(255,255,255,0.25);
-    }
-    h1 {
-      text-align: center;
-      font-size: 34px;
-      color: #aeafff;
-      margin-bottom: 30px;
-      letter-spacing: 1px;
-    }
-    h2 {
-      margin-top: 25px;
-      font-size: 22px;
-      color: #ffe893;
-    }
-    h2 span {
-      color: #ff9f43;
-      font-weight: bold;
-    }
-    ol {
-      font-size: 18px;
-      margin-left: 20px;
-    }
-    ol li {
-      margin: 12px 0;
-    }
-    ul.sub {
-      list-style-type: disc;
-      margin-left: 40px;
-      margin-top: 8px;
-      font-size: 16px;
-    }
-    .footer {
-      margin-top: 35px;
-      display: flex;
-      justify-content: space-between;
-    }
-    .footer a {
-      text-decoration: none;
-      color: #ffdf6c;
-      padding: 10px 22px;
-      border: 1px solid #ffdf6c;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-    .footer a:hover {
-      background: #ffdf6c;
-      color: #000;
-    }
-    ul {
-      margin-top: 40px;
-      font-family: 'Segoe UI Black';
-      font-size: 16px;
-      list-style: none;
-      padding: 0;
-      display: flex;
-      gap: 20px;
-    }
-    ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: #3498db;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    ul li a:hover {
-      background: #1d6fa5;
-      transform: translateY(-2px);
-    }
+    <meta charset="UTF-8">
+    <title>Biện luận phương trình bậc 2</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Inter", "Segoe UI", sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapper {
+            width: 1000px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            overflow: hidden;
+        }
+
+        /* LEFT */
+        .left {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: #fff;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .left h1 {
+            font-size: 34px;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .equation {
+            font-size: 26px;
+            background: rgba(255,255,255,0.15);
+            padding: 18px;
+            border-radius: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .note {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* RIGHT */
+        .right {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .card {
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 20px 25px;
+            border-left: 6px solid #2563eb;
+        }
+
+        .card ol {
+            margin-left: 20px;
+        }
+
+        .card li {
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .result {
+            margin-top: 15px;
+        }
+
+        .result li {
+            margin: 8px 0;
+        }
+
+        .footer {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2563eb;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .footer a:hover {
+            background: #e0e7ff;
+        }
 #music-btn {
         width: 65px;
         height: 65px;
@@ -111,11 +131,10 @@
         transform: scale(1.1);
         border-color: #888;
     }
-  </style>
+    </style>
 </head>
-<body>
 <audio id="music" autoplay loop muted>
-    <source src="audio/ngan.mp3" type="audio/mpeg">
+    <source src="audio/linh.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -124,29 +143,52 @@
         m.muted = false;
     });
 </script>
-  <div class="glass">
-    <h1>Biện luận số nghiệm của phương trình bậc 2</h1>
+<body>
+    <div class="wrapper">
 
-    <h2><span>Bài toán:</span> Xác định số nghiệm của phương trình ax<sup>2</sup> + bx + c = 0 (a ≠ 0)</h2>
+        <!-- LEFT -->
+        <div class="left">
+            <h1>Biện luận số nghiệm<br>phương trình bậc 2</h1>
 
-    <h2><span>Cách làm:</span></h2>
-    <ol>
-      <li><strong>B<sub>1</sub></strong>: Xác định hệ số a, b và c</li>
-      <li><strong>B<sub>2</sub></strong>: Tính <strong>Δ</strong> = b<sup>2</sup> - 4ac</li>
-      <li><strong>B<sub>3</sub></strong>: Kết luận
-        <ul class="sub">
-          <li>Nếu Δ &lt; 0: phương trình <em>vô nghiệm</em></li>
-          <li>Nếu Δ = 0: phương trình có <em>nghiệm duy nhất</em></li>
-          <li>Nếu Δ &gt; 0: phương trình có <em>hai nghiệm phân biệt</em></li>
-        </ul>
-      </li>
-    </ol>
+            <div class="equation">
+                ax<sup>2</sup> + bx + c = 0
+            </div>
 
-<ul>
-  <li><a href="tcn_ngan.html"><strong>Quay Lại</strong></a></li>
-  <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
-</ul>
+            <div class="note">
+                Điều kiện: a ≠ 0
+            </div>
+        </div>
 
-  </div>
+        <!-- RIGHT -->
+        <div class="right">
+            <div class="section">
+                <h2>Bài toán</h2>
+                <p>Xác định số nghiệm của phương trình bậc hai.</p>
+            </div>
+
+            <div class="section">
+                <h2>Cách làm</h2>
+                <div class="card">
+                    <ol>
+                        <li>Xác định các hệ số a, b, c</li>
+                        <li>Tính <strong>Δ = b<sup>2</sup> − 4ac</strong></li>
+                        <li>Biện luận số nghiệm</li>
+                    </ol>
+
+                    <ul class="result">
+                        <li>Δ &lt; 0 → Vô nghiệm</li>
+                        <li>Δ = 0 → Nghiệm duy nhất</li>
+                        <li>Δ &gt; 0 → Hai nghiệm phân biệt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer">
+                <a href="tcn_linh.html">Quay lại</a>
+                <a href="index.html">Trang chủ</a>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
