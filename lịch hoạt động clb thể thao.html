@@ -1,21 +1,90 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Lịch hoạt động CLB Thể thao</title>
- 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANH SÁCH CÂU LẠC BỘ</title>
+<style>
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+    body {
+        font-family: Arial, sans-serif;
+    }
+    table {
+        width: 700px;
+        border-collapse: collapse;
+        margin: 20px auto;
+        text-align: center;
+    }
+    td, th {
+        border: 2px solid #a191e9;
+        padding: 6px;
+    }
+        .nav {
+            margin: 40px auto 0;
+            max-width: 1100px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #033E8C;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .nav a:hover {
+            background: #033E8C;
+            color: #fff;
+        }
+</style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/vy.mp3" type="audio/mpeg">
+</audio>
 
-<h3 style="text-align: center;">Lịch hoạt động CLB Thể thao</h3>
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<table style="border: double;">
+    <tr>
+        <th colspan="7">Lịch hoạt động CLB Thể thao</th>
+    </tr>
 
-<table border ="1" style="border-collapse: collapse;margin: auto;text-align: center">
-    <tr bgcolor = #73C6D9 >
+    <tr bgcolor="#e2f0cc">
         <th rowspan="2">Bộ môn</th>
         <th rowspan="2">GV phụ trách</th>
         <th colspan="5">Ngày</th>
     </tr>
-    <tr bgcolor = #88E8F2>
+
+    <tr bgcolor="#b7ebd9">
         <th>Thứ 2</th>
         <th>Thứ 3</th>
         <th>Thứ 4</th>
@@ -23,52 +92,44 @@
         <th>Thứ 6</th>
     </tr>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng đá</td>
-        <td >Thầy Khải</td>
-        <td></td><td></td><td></td><td></td><td></td>
+    <tr>
+        <td class="left">Bóng đá</td>
+        <td class="left">Thầy Khải</td>
+        <td></td><td></td><td></td><td></td><td>X</td>
     </tr>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng chuyền</td>
-        <td >Cô Lan</td>
+    <tr>
+        <td class="left">Bóng chuyền</td>
+        <td class="left">Cô Lan</td>
         <td></td><td>X</td><td></td><td></td><td></td>
     </tr>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng rổ</td>
-        <td >Thầy Vũ</td>
+    <tr>
+        <td class="left">Bóng rổ</td>
+        <td class="left">Thầy Vũ</td>
         <td></td><td></td><td>X</td><td></td><td></td>
     </tr>
 
-    <tr >
-        <td rowspan="3" bgcolor ="#DDDDDD">Võ thuật</td>
-        <td >Thầy Hoàng – Karatedo</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
+    <tr>
+        <td class="left">Võ thuật</td>
+        <td class="left">
+            Thầy Hoàng – Karatedo<br>
+            Thầy Đức – Taekwondo<br>
+            Thầy Thắng – Vovinam
+        </td>
+        <td></td><td>X</td><td></td><td>X</td><td></td>
     </tr>
 
-    <tr >
-        <td >Thầy Đức – Taekwondo</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td >Thầy Thắng – Vovinam</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td bgcolor ="#DDDDDD">Bơi</td>
-        <td >Cô Bích</td>
-        <td></td><td></td><td>X</td><td></td><td>X</td>
+    <tr>
+        <td class="left">Bơi</td>
+        <td class="left">Cô Bích</td>
+        <td></td><td></td><td>X</td><td></td><td></td>
     </tr>
 
 </table>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_vy.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
+<div class="nav">
+    <a href="tcn_vy.html">← Quay lại</a>
+    <a href="index.html">🏠 Trang chủ</a>
+</div>
 </body>
 </html>
-
-
