@@ -1,74 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Lịch hoạt động CLB Thể thao</title>
- 
+  <meta charset="UTF-8">
+  <title>Lịch hoạt động CLB Thể thao</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #cfb5f5, #f1e6f3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    h3 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .list {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .item {
+      background: #ffffff;
+      border-left: 8px solid #8790ed;
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+      cursor: default;
+    }
+    .item:hover {
+      transform: translateY(-4px);
+    }
+    .item:hover .detail {
+      max-height: 100px;
+      opacity: 1;
+      margin-top: 10px;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+    .teacher {
+      font-size: 14px;
+      color: #555;
+      margin-top: 4px;
+    }
+    .detail {
+      font-size: 13px;
+      color: #444;
+      background: #ce76e4;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+   ul.links {
+      margin-top: 40px;
+      font-family: 'Segoe UI Black';
+      font-size: 16px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    ul.links li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #334EAC;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    ul.links li a:hover {
+      background: #033E8C;
+      transform: translateY(-2px);
+    }
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+  </style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/duyen.mp3" type="audio/mpeg">
+</audio>
 
-<h3 style="text-align: center;">Lịch hoạt động CLB Thể thao</h3>
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<h3>Lịch hoạt động CLB Thể thao</h3>
 
-<table border ="1" style="border-collapse: collapse;margin: auto;text-align: center">
-    <tr bgcolor = #07f507>
-        <th rowspan="2">Bộ môn</th>
-        <th rowspan="2">GV phụ trách</th>
-        <th colspan="5">Ngày</th>
-    </tr>
-    <tr bgcolor = #a3f09c>
-        <th>Thứ 2</th>
-        <th>Thứ 3</th>
-        <th>Thứ 4</th>
-        <th>Thứ 5</th>
-        <th>Thứ 6</th>
-    </tr>
+<div class="list">
+  <div class="item">
+    <div class="title">Bóng đá</div>
+    <div class="teacher">GV: Thầy Khải</div>
+    <div class="detail">Tập vào Thứ 3 và Thứ 6</div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng đá</td>
-        <td >Thầy Khải</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
+  <div class="item">
+    <div class="title">Bóng chuyền</div>
+    <div class="teacher">GV: Cô Lan</div>
+    <div class="detail">Tập vào Thứ 3</div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng chuyền</td>
-        <td >Cô Lan</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="item">
+    <div class="title">Bóng rổ</div>
+    <div class="teacher">GV: Thầy Vũ</div>
+    <div class="detail">Tập vào Thứ 4</div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#DDDDDD">Bóng rổ</td>
-        <td >Thầy Vũ</td>
-        <td></td><td></td><td>X</td><td></td><td></td>
-    </tr>
+  <div class="item">
+    <div class="title">Võ – Karatedo</div>
+    <div class="teacher">GV: Thầy Hoàng</div>
+    <div class="detail">Tập vào Thứ 3</div>
+  </div>
 
-    <tr >
-        <td rowspan="3" bgcolor ="#DDDDDD">Võ thuật</td>
-        <td >Thầy Hoàng – Karatedo</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="item">
+    <div class="title">Võ – Taekwondo</div>
+    <div class="teacher">GV: Thầy Đức</div>
+    <div class="detail">Chưa có lịch tập</div>
+  </div>
 
-    <tr >
-        <td >Thầy Đức – Taekwondo</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
+  <div class="item">
+    <div class="title">Võ – Vovinam</div>
+    <div class="teacher">GV: Thầy Thắng</div>
+    <div class="detail">Tập vào Thứ 3</div>
+  </div>
 
-    <tr >
-        <td >Thầy Thắng – Vovinam</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
-
-    <tr >
-        <td bgcolor ="#DDDDDD">Bơi</td>
-        <td >Cô Bích</td>
-        <td></td><td></td><td>X</td><td></td><td>X</td>
-    </tr>
-
-</table>
-    <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_duyen.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-    </ul>
+  <div class="item">
+    <div class="title">Bơi</div>
+    <div class="teacher">GV: Cô Bích</div>
+    <div class="detail">Tập vào Thứ 4 và Thứ 6</div>
+  </div>
+</div>
+<ul class="links">
+  <li><a href="tcn_han.html"><strong>Quay Lại</strong></a></li>
+  <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
+</ul>
 </body>
 </html>
-
-
