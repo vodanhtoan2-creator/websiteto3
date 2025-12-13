@@ -1,60 +1,227 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Danh sách câu lạc bộ</title>
-        <style>
-.avatar {
-    position: absolute;
-    right: 40px;      /* cách mép phải 20px */
-    top: 30%;         /* nằm giữa chiều dọc */
-    transform: translateY(-30%);
-    width: 400px;
-    border-radius: 12px; }
-        </style>
-    </head>
-    <body>
-        <div style="margin-left: 400px; font-family:'verdana'">
-            <h2 style="color: rgb(255, 0, 0);">Danh sách câu lạc bộ</h2>
-            <ul>
-                <li> <strong> <p style="color: brown;">Thể thao</p></strong> 
-                    <ol>
-                        <li>Bóng đá</li>
-                        <li>Bóng chuyền</li>
-                        <li>Bóng rổ</li>
-                        <li>Võ
-                            <ol type="a">
-                                <li>Karatedo</li>
-                                <li>Taekwondo</li>
-                                <li>Vovinam</li>
-                            </ol>
-                        </li>
-                        <li>Bơi</li>
-                    </ol>
-                </li>
+<head>
+<meta charset="UTF-8">
+<title>Danh sách câu lạc bộ</title>
+<style>
+:root{
+  --bg:#0b0f1a;
+  --card:#12172a;
+  --glass:rgba(255,255,255,0.08);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#7c9cff;
+  --accent2:#4fd1c5;
+}
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-                <li> <strong><p style="color: brown;">Nghệ thuật</p></strong>
-                    <ol>
-                        <li>Mĩ thuật</li>
-                        <li>Nhiếp ảnh</li>
-                        <li>Âm thanh
-                            <ol type="a">
-                                <li>Thanh nhạc</li>
-                                <li>Piano</li>
-                                <li>Violin</li>
-                            </ol>
-                        </li>
-                        <li>Khiêu vũ</li>
-                    </ol>
-                </li>
-            </ul>
-        </div>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_dung.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
-        <div style="flex-shrink:0;">
-            <img src="anh/The-thao.jpg" alt="Ảnh" class="avatar" style="transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.2);" />
-        </div>
-    </body>
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Segoe UI',Tahoma,sans-serif;
+  background:
+    radial-gradient(800px 400px at 10% 10%,rgba(124,156,255,.15),transparent 40%),
+    radial-gradient(600px 300px at 90% 30%,rgba(79,209,197,.15),transparent 40%),
+    var(--bg);
+  color:var(--text);
+}
+
+/* layout */
+.wrapper{
+  max-width:1200px;
+  margin:60px auto;
+  padding:40px;
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:40px;
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.02));
+  backdrop-filter: blur(14px);
+  border-radius:22px;
+  padding:34px;
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+
+h1{
+  margin-top:0;
+  font-size:28px;
+  letter-spacing:2px;
+}
+
+.section{margin-top:22px;}
+
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:18px;
+  color:var(--accent);
+}
+
+
+
+.section-title span{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+}
+
+.list{margin:12px 0 0 24px;}
+
+.list li{
+  margin:8px 0;
+  color:var(--muted);
+  transition:.25s;
+}
+
+.list li:hover{
+  color:var(--text);
+  transform:translateX(6px);
+}
+
+.sub{
+  margin-left:20px;
+  list-style:circle;
+  color:#bdefff;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transition:max-height .4s ease, opacity .4s ease;
+}
+
+/* chỉ hiện khi rê vào mục cha */
+.list li:hover > .sub{
+  max-height:200px;
+  opacity:1;
+}
+
+/* image */
+.image-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.avatar{
+  width:100%;
+  max-width:320px;
+  border-radius:26px;
+  box-shadow:0 25px 60px rgba(0,0,0,.6);
+  transition:.6s;
+}
+
+.avatar:hover{
+  transform:scale(1.05) rotate(-1deg);
+}
+
+/* nav */
+.nav{
+  max-width:1200px;
+  margin:0 auto 40px;
+  display:flex;
+  gap:18px;
+}
+
+.nav a{
+  text-decoration:none;
+  color:var(--text);
+  padding:10px 18px;
+  border-radius:14px;
+  background:var(--glass);
+  backdrop-filter: blur(10px);
+  transition:.3s;
+}
+
+.nav a:hover{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#000;
+}
+
+@media(max-width:900px){
+  .wrapper{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/dung.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<div class="wrapper">
+  <div class="card">
+    <h1>DANH SÁCH CÂU LẠC BỘ</h1>
+
+    <div class="section">
+      <div class="section-title"><span></span> Thể thao</div>
+      <ul class="list">
+        <li>Bóng đá</li>
+        <li>Bóng chuyền</li>
+        <li>Bóng rổ</li>
+        <li>Võ
+          <ul class="sub">
+            <li>Karatedo</li>
+            <li>Taekwondo</li>
+            <li>Vovinam</li>
+          </ul>
+        </li>
+        <li>Bơi</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <div class="section-title"><span></span> Nghệ thuật</div>
+      <ul class="list">
+        <li>Mĩ thuật</li>
+        <li>Nhiếp ảnh</li>
+        <li>Âm nhạc
+          <ul class="sub">
+            <li>Thanh nhạc</li>
+            <li>Piano</li>
+            <li>Violin</li>
+          </ul>
+        </li>
+        <li>Khiêu vũ</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="image-box">
+    <img src="anh/the-theo8.jpg" class="avatar" alt="The thao">
+  </div>
+</div>
+
+<div class="nav">
+  <a href="tcn_dung.html">Quay lại</a>
+  <a href="index.html">Trang chủ</a>
+</div>
+
+</body>
 </html>
