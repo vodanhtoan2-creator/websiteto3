@@ -3,70 +3,194 @@
 <head>
 <meta charset="UTF-8">
 <title>Lịch hoạt động CLB Thể thao</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',system-ui,sans-serif;
+  background:linear-gradient(120deg,#0f172a,#1e293b,#020617);
+  color:#e5e7eb;
+}
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+h3{
+  text-align:center;
+  margin:50px 0 10px;
+  font-size:28px;
+  letter-spacing:2px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#94a3b8;
+  margin-bottom:50px;
+}
+
+/* ===== SCHEDULE GRID ===== */
+.schedule{
+  max-width:1100px;
+  margin:0 auto 60px;
+  display:grid;
+  grid-template-columns:180px repeat(5,1fr);
+  gap:16px;
+}
+
+/* LEFT COLUMN */
+.club{
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  padding:16px 14px;
+  font-weight:600;
+}
+
+.club span{
+  display:block;
+  font-weight:400;
+  font-size:13px;
+  color:#cbd5f5;
+  margin-top:6px;
+}
+
+/* DAY CARD */
+.day{
+  background:rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:14px;
+  box-shadow:0 15px 30px rgba(0,0,0,.4);
+}
+
+.day h4{
+  margin:0 0 10px;
+  text-align:center;
+  font-size:15px;
+  color:#38bdf8;
+}
+
+.slot{
+  margin:10px 0;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(15,23,42,.6);
+  font-size:14px;
+  transition:.3s;
+}
+
+.slot:hover{
+  transform:translateY(-3px);
+  background:linear-gradient(135deg,#2563eb,#22d3ee);
+  color:#fff;
+}
+
+.empty{
+  opacity:.25;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-bottom:40px;
+}
+
+.nav a{
+  text-decoration:none;
+  padding:12px 26px;
+  border-radius:999px;
+  background:#020617;
+  color:#e5e7eb;
+  font-weight:600;
+  box-shadow:0 10px 20px rgba(0,0,0,.5);
+  transition:.3s;
+}
+
+.nav a:hover{
+  background:linear-gradient(135deg,#2563eb,#22d3ee);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .schedule{
+    grid-template-columns:1fr;
+  }
+}
+</style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/nguyet.mp3" type="audio/mpeg">
+</audio>
 
-<h3 style="text-align:center;">Lịch hoạt động CLB Thể thao</h3>
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<h3>LỊCH HOẠT ĐỘNG CLB THỂ THAO</h3>
 
-<table border="1" cellspacing="0" ; style="text-align: center; border-color: #c997ff;margin: auto">
-    <tr bgcolor="#c21f2d">
-        <th rowspan="2" width="90">Bộ môn</th>
-        <th rowspan="2" width="150">GV phụ trách</th>
-        <th colspan="5">Ngày</th>
-    </tr>
-    <tr bgcolor="#a82331">
-        <th>Thứ 2</th>
-        <th>Thứ 3</th>
-        <th>Thứ 4</th>
-        <th>Thứ 5</th>
-        <th>Thứ 6</th>
-    </tr>
+<div class="schedule">
 
-    <tr>
-        <td bgcolor="#f59f9f">Bóng đá</td>
-        <td  >Thầy Khải</td>
-        <td></td><td></td><td></td><td></td><td>X</td>
-    </tr>
+  <div class="club">Bóng đá<span>Thầy Khải</span></div>
+  <div class="day"><h4>Thứ 2</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 3</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 4</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 5</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 6</h4><div class="slot">Tập luyện</div></div>
 
-    <tr>
-        <td bgcolor="#f59f9f">Bóng chuyền</td>
-        <td  >Cô Lan</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="club">Bóng chuyền<span>Cô Lan</span></div>
+  <div class="day"><h4>Thứ 2</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 3</h4><div class="slot">Tập luyện</div></div>
+  <div class="day"><h4>Thứ 4</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 5</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 6</h4><div class="slot empty">—</div></div>
 
-    <tr>
-        <td bgcolor="#f59f9f">Bóng rổ</td>
-        <td  >Thầy Vũ</td>
-        <td></td><td></td><td>X</td><td></td><td></td>
-    </tr>
+  <div class="club">Bóng rổ<span>Thầy Vũ</span></div>
+  <div class="day"><h4>Thứ 2</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 3</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 4</h4><div class="slot">Tập luyện</div></div>
+  <div class="day"><h4>Thứ 5</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 6</h4><div class="slot empty">—</div></div>
 
-    <tr>
-        <td rowspan="3" bgcolor="#f59f9f">Võ thuật</td>
-        <td  >Thầy Hoàng – Karatedo</td>
-        <td>X</td><td></td><td></td><td></td><td></td>
-    </tr>
-    <tr>
-        <td  >Thầy Đức – Taekwondo</td>
-        <td></td><td></td><td></td><td>X</td><td></td>
-    </tr>
-    <tr>
-        <td  >Thầy Thắng – Vovinam</td>
-        <td></td><td></td><td></td><td></td><td>X</td>
-    </tr>
+  <div class="club">Võ thuật<span>Karatedo • Taekwondo • Vovinam</span></div>
+  <div class="day"><h4>Thứ 2</h4><div class="slot">Karatedo</div></div>
+  <div class="day"><h4>Thứ 3</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 4</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 5</h4><div class="slot">Taekwondo</div></div>
+  <div class="day"><h4>Thứ 6</h4><div class="slot">Vovinam</div></div>
 
-    <tr>
-        <td bgcolor="#f59f9f">Bơi</td>
-        <td  >Cô Bích</td>
-        <td></td><td></td><td></td><td>X</td><td></td>
-    </tr>
+  <div class="club">Bơi<span>Cô Bích</span></div>
+  <div class="day"><h4>Thứ 2</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 3</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 4</h4><div class="slot empty">—</div></div>
+  <div class="day"><h4>Thứ 5</h4><div class="slot">Tập luyện</div></div>
+  <div class="day"><h4>Thứ 6</h4><div class="slot empty">—</div></div>
 
-</table>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_nguyet.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
+</div>
 
+<div class="nav">
+  <a href="tcn_nguyet.html">← Quay lại</a>
+  <a href="index.html">Trang chủ</a>
+</div>
 
 </body>
 </html>
