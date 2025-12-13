@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Danh sách câu lạc bộ</title>
   <style>
-    #music-btn {
+#music-btn {
         width: 65px;
         height: 65px;
         border-radius: 50%;
@@ -24,36 +24,21 @@
         transform: scale(1.1);
         border-color: #888;
     }
-
     body {
       margin: 0;
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #ffdee5, #ffacbc);
-      min-height: 100vh;
-      color: #222;
-    }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #cfb5f5, #f1e6f3);
+      background: url(anh/bck.jpg) no-repeat center center fixed;
+      background-size: cover;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .avatar {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      justify-content: flex-start;
     }
     h1 {
       margin-top: 40px;
-      color: #8a52be;
-      text-shadow: 0 0 8px #ce76e4;
+      color: #fff;
+      text-shadow: 0 0 12px #00ffff;
       letter-spacing: 2px;
     }
     .cards {
@@ -65,22 +50,34 @@
       max-width: 1000px;
     }
     .card {
-      background: linear-gradient(160deg, #ffffff, #8790ed);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
       padding: 24px;
       width: 280px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.2);
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+      box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
     }
     .card h2 {
       margin-top: 0;
-      color: #6862bd;
+      color: #fff;
       font-size: 20px;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .card h2 span {
+      font-size: 24px;
     }
     .card ul {
       list-style: none;
@@ -89,14 +86,30 @@
     }
     .card li {
       margin: 6px 0;
-      padding: 6px 10px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.6);
-      transition: background 0.2s ease;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      transition: background 0.3s ease, text-shadow 0.3s ease;
+      cursor: pointer;
     }
     .card li:hover {
-      background: #cfb5f5;
+      background: rgba(0,255,255,0.2);
+      text-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
     }
+
+    /* Ẩn danh sách con mặc định */
+    .card li ul {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+      margin-left: 16px;
+    }
+    /* Khi hover vào li cha thì bung danh sách con */
+    .card li:hover > ul {
+      max-height: 300px;
+    }
+
     .links {
       margin: 20px;
     }
@@ -107,14 +120,16 @@
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      color: white;
-      background: linear-gradient(90deg, #334EAC, #033E8C);
-      box-shadow: 0 0 12px #334EAC;
-      transition: background 0.3s ease, transform 0.3s ease;
+      color: #fff;
+      background: rgba(0,255,255,0.2);
+      border: 1px solid #00ffff;
+      box-shadow: 0 0 12px #00ffff;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
     .links a:hover {
-      background: linear-gradient(90deg, #033E8C, #334EAC);
+      background: rgba(0,255,255,0.4);
       transform: scale(1.08);
+      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
     }
   </style>
 </head>
@@ -132,7 +147,7 @@
   <h1>DANH SÁCH CÂU LẠC BỘ</h1>
   <div class="cards">
     <div class="card">
-      <h2>Thể thao</h2>
+      <h2><span>⚽</span> Thể thao</h2>
       <ul>
         <li>Bóng đá</li>
         <li>Bóng chuyền</li>
@@ -148,7 +163,7 @@
       </ul>
     </div>
     <div class="card">
-      <h2>Nghệ thuật</h2>
+      <h2><span>🎨</span> Nghệ thuật</h2>
       <ul>
         <li>Mĩ thuật</li>
         <li>Nhiếp ảnh</li>
@@ -162,7 +177,6 @@
         <li>Khiêu vũ</li>
       </ul>
     </div>
-        <img src="anh/the-thao10.jpg" alt="Ảnh" class="avatar" />
   </div>
   <div class="links">
     <a href="tcn_hung.html">Quay Lại</a>
