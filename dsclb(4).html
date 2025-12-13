@@ -1,60 +1,160 @@
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Danh sách câu lạc bộ</title>
-        <style>
-.avatar {
-    position: absolute;
-    right: 40px;      /* cách mép phải 20px */
-    top: 30%;         /* nằm giữa chiều dọc */
-    transform: translateY(-30%);
-    width: 400px;
-    border-radius: 12px; }
-        </style>
-    </head>
-    <body>
-        <div style="margin-left: 400px; font-family:'Segoe UI Semibold'">
-            <h1 style="color: blueviolet;">Danh sách câu lạc bộ</h1>
-            <ul>
-                <li > <strong style="color: rgb(144, 144, 219);font-size:  20px;">Thể thao</strong> 
-                    <ol>
-                        <li>Bóng đá</li>
-                        <li>Bóng chuyền</li>
-                        <li>Bóng rổ</li>
-                        <li>Võ
-                            <ol type="a">
-                                <li>Karatedo</li>
-                                <li>Taekwondo</li>
-                                <li>Vovinam</li>
-                            </ol>
-                        </li>
-                        <li>Bơi</li>
-                    </ol>
-                </li>
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách câu lạc bộ</title>
+  <style>
+ #music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-                <li> <strong style="color: rgb(144, 144, 219);font-size:  20px;">Nghệ thuật</strong>
-                    <ol>
-                        <li>Mĩ thuật</li>
-                        <li>Nhiếp ảnh</li>
-                        <li>Âm thanh
-                            <ol type="a">
-                                <li>Thanh nhạc</li>
-                                <li>Piano</li>
-                                <li>Violin</li>
-                            </ol>
-                        </li>
-                        <li>Khiêu vũ</li>
-                    </ol>
-                </li>
-            </ul>
-        </div>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_ngan.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
-        <div style="flex-shrink:0;">
-            <img src="anh/The-thao.jpg" alt="Ảnh" class="avatar" style="transition:0.3s; box-shadow:0 4px 10px rgba(0,0,0,0.2);" />
-        </div>
-    </body>
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdee5, #ffacbc);
+      min-height: 100vh;
+      color: #222;
+    }
+    h1 {
+      text-align: center;
+      color: #750d48;
+      margin-top: 40px;
+      text-shadow: 0 0 8px #ff728e;
+      letter-spacing: 2px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      position: relative;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    ul, ol {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    li {
+      margin: 6px 0;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    li:hover {
+      transform: translateX(8px);
+      color: #a89beb;
+    }
+    strong {
+      font-size: 18px;
+      color: #665380;
+    }
+    .avatar {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px #e9c6f5;
+      transition: transform 0.3s ease;
+    }
+    .avatar:hover {
+      transform: translateY(-50%) scale(1.05);
+    }
+    .links {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .links a {
+      display: inline-block;
+      margin: 0 12px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(90deg, #334EAC, #033E8C);
+      box-shadow: 0 0 12px #334EAC;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .links a:hover {
+      background: linear-gradient(90deg, #033E8C, #334EAC);
+      transform: scale(1.08);
+    }
+
+
+  </style>
+</head>
+<body>
+    <audio id="music" autoplay loop muted>
+    <source src="audio/ngan.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+  <h1>DANH SÁCH CÂU LẠC BỘ</h1>
+  <div class="container">
+    <ul>
+      <li><strong>Thể thao</strong>
+        <ol>
+          <li>Bóng đá</li>
+          <li>Bóng chuyền</li>
+          <li>Bóng rổ</li>
+          <li>Võ
+            <ol type="a">
+              <li>Karatedo</li>
+              <li>Taekwondo</li>
+              <li>Vovinam</li>
+            </ol>
+          </li>
+          <li>Bơi</li>
+        </ol>
+      </li>
+      <li><strong>Nghệ thuật</strong>
+        <ol>
+          <li>Mĩ thuật</li>
+          <li>Nhiếp ảnh</li>
+          <li>Âm thanh
+            <ol type="a">
+              <li>Thanh nhạc</li>
+              <li>Piano</li>
+              <li>Violin</li>
+            </ol>
+          </li>
+          <li>Khiêu vũ</li>
+        </ol>
+      </li>
+    </ul>
+    <img src="anh/the-thao9.jpg" alt="Ảnh" class="avatar" />
+  </div>
+  <div class="links">
+    <a href="tcn_ngan.html">Quay Lại</a>
+    <a href="index.html">Trang Chủ</a>
+  </div>
+</body>
 </html>
