@@ -1,74 +1,244 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Lịch hoạt động CLB Thể thao</title>
- 
+  <meta charset="UTF-8">
+  <title>Lịch hoạt động CLB Thể thao</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    h3 {
+      text-align: center;
+      margin-top: 40px;
+      color: #2c3e50;
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #65aceb;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .card {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      width: 45%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      margin: 20px 0;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card.left {
+      left: 0;
+    }
+    .card.right {
+      left: 55%;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: #65aceb;
+      border: 3px solid #fff;
+      top: 20px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .card.right::before {
+      left: -10px;
+    }
+    .card h4 {
+      margin: 0 0 8px 0;
+      font-size: 20px;
+      color: #34495e;
+    }
+    .teacher {
+      font-size: 14px;
+      color: #7f8c8d;
+      margin-bottom: 12px;
+    }
+    .schedule {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #ecf0f1;
+      font-size: 13px;
+    }
+    .chip.active {
+      background: #65aceb;
+      color: #fff;
+      font-weight: bold;
+    }
+    ul {
+      margin-top: 40px;
+      font-family: 'Segoe UI Black';
+      font-size: 16px;
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #334EAC;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    ul li a:hover {
+      background: #033E8C;
+      transform: translateY(-2px);
+    }
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+  </style>
 </head>
 <body>
+<audio id="music" autoplay loop muted>
+    <source src="audio/hung.mp3" type="audio/mpeg">
+</audio>
 
-<h3 style="text-align: center;">Lịch hoạt động CLB Thể thao</h3>
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<h3>Lịch hoạt động CLB Thể thao</h3>
 
-<table border ="1" style="border-collapse: collapse;margin: auto;text-align: center">
-    <tr bgcolor = #65aceb >
-        <th rowspan="2">Bộ môn</th>
-        <th rowspan="2">GV phụ trách</th>
-        <th colspan="5">Ngày</th>
-    </tr>
-    <tr bgcolor = #fafaf2>
-        <th>Thứ 2</th>
-        <th>Thứ 3</th>
-        <th>Thứ 4</th>
-        <th>Thứ 5</th>
-        <th>Thứ 6</th>
-    </tr>
+<div class="timeline">
+  <div class="card left">
+    <h4>Bóng đá</h4>
+    <div class="teacher">GV: Thầy Khải</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#ffece6">Bóng đá</td>
-        <td >Thầy Khải</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
+  <div class="card right">
+    <h4>Bóng chuyền</h4>
+    <div class="teacher">GV: Cô Lan</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip active">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#ffece6">Bóng chuyền</td>
-        <td >Cô Lan</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="card left">
+    <h4>Bóng rổ</h4>
+    <div class="teacher">GV: Thầy Vũ</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip">T3</div>
+      <div class="chip active">T4</div>
+      <div class="chip">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td bgcolor ="#ffece6">Bóng rổ</td>
-        <td >Thầy Vũ</td>
-        <td></td><td></td><td>X</td><td></td><td></td>
-    </tr>
+  <div class="card right">
+    <h4>Võ thuật – Karatedo</h4>
+    <div class="teacher">GV: Thầy Hoàng</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip active">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td rowspan="3" bgcolor ="#ffece6">Võ thuật</td>
-        <td >Thầy Hoàng – Karatedo</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="card left">
+    <h4>Võ thuật – Taekwondo</h4>
+    <div class="teacher">GV: Thầy Đức</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip active">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td >Thầy Đức – Taekwondo</td>
-        <td></td><td></td><td></td><td></td><td></td>
-    </tr>
+  <div class="card right">
+    <h4>Võ thuật – Vovinam</h4>
+    <div class="teacher">GV: Thầy Thắng</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip active">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip">T5</div>
+      <div class="chip">T6</div>
+    </div>
+  </div>
 
-    <tr >
-        <td >Thầy Thắng – Vovinam</td>
-        <td></td><td>X</td><td></td><td></td><td></td>
-    </tr>
+  <div class="card left">
+    <h4>Bơi</h4>
+    <div class="teacher">GV: Cô Bích</div>
+    <div class="schedule">
+      <div class="chip">T2</div>
+      <div class="chip">T3</div>
+      <div class="chip">T4</div>
+      <div class="chip active">T5</div>
+      <div class="chip active">T6</div>
+    </div>
+  </div>
+</div>
 
-    <tr >
-        <td bgcolor ="#ffece6">Bơi</td>
-        <td >Cô Bích</td>
-        <td></td><td></td><td>X</td><td></td><td>X</td>
-    </tr>
+<ul>
+  <li><a href="tcn_hung.html"><strong>Quay Lại</strong></a></li>
+  <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
+</ul>
 
-</table>
-        <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_hung.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-        </ul>
 </body>
 </html>
-
-
