@@ -3,19 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <title>Lịch hoạt động CLB Thể thao</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url("anh/bck2.jpg") no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  h3 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 12px #00ffff;
+    margin-top: 40px;
+  }
+  table {
+    margin: 40px auto;
+    width: 500px;
+    border-collapse: collapse;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    border: 2px solid rgba(0,255,255,0.6);
+    box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+    overflow: hidden;
+    color: #fff;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid rgba(0,255,255,0.3);
+  }
+  th {
+    background: rgba(0,255,255,0.2);
+    text-shadow: 0 0 8px #00ffff;
+  }
+  tr:nth-child(even) td {
+    background: rgba(255,255,255,0.05);
+  }
+  tr:hover td {
+    background: rgba(0,255,255,0.2);
+    text-shadow: 0 0 8px #00ffff;
+  }
+  ul {
+    margin-top: 40px;
+    font-family: 'Segoe UI Black';
+    font-size: 16px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: 1px solid #00ffff;
+    background: rgba(0,255,255,0.15);
+    box-shadow: 0 0 12px #00ffff;
+    transition: all 0.3s ease;
+  }
+  ul li a:hover {
+    background: rgba(255,0,255,0.3);
+    box-shadow: 0 0 20px #ff00ff, 0 0 40px #00ffff;
+    transform: scale(1.05);
+  }
+#music-btn {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #222;
+        border: 2px solid #555;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
+    #music-btn:hover {
+        background: #333;
+        transform: scale(1.1);
+        border-color: #888;
+    }
+</style>
 </head>
 <body>
 
-<h3 style="text-align:center;">Lịch hoạt động CLB Thể thao</h3>
+<h3>Lịch hoạt động CLB Thể thao</h3>
+<audio id="music" autoplay loop muted>
+    <source src="audio/toan.mp3" type="audio/mpeg">
+</audio>
 
-<table border="1" cellspacing="0" ; style="text-align: center; border-color: #90e0ff;margin: auto; height:220px; width: 500px;">
-    <tr bgcolor="#8FD9C4">
+<script>
+    document.addEventListener("click", () => {
+        const m = document.getElementById("music");
+        m.muted = false;
+    });
+</script>
+<table>
+    <tr>
         <th rowspan="2">Bộ môn</th>
         <th rowspan="2">GV phụ trách</th>
         <th colspan="5">Ngày</th>
     </tr>
-    <tr bgcolor="#E8F1FD">
+    <tr>
         <th>Thứ 2</th>
         <th>Thứ 3</th>
         <th>Thứ 4</th>
@@ -25,46 +125,43 @@
 
     <tr>
         <td>Bóng đá</td>
-        <td  >Thầy Khải</td>
+        <td>Thầy Khải</td>
         <td></td><td></td><td></td><td></td><td>X</td>
     </tr>
-
     <tr>
         <td>Bóng chuyền</td>
-        <td  >Cô Lan</td>
+        <td>Cô Lan</td>
         <td></td><td>X</td><td></td><td></td><td></td>
     </tr>
-
     <tr>
         <td>Bóng rổ</td>
-        <td  >Thầy Vũ</td>
+        <td>Thầy Vũ</td>
         <td></td><td></td><td>X</td><td></td><td></td>
     </tr>
-
     <tr>
         <td rowspan="3">Võ thuật</td>
-        <td  >Thầy Hoàng – Karatedo</td>
+        <td>Thầy Hoàng – Karatedo</td>
         <td>X</td><td></td><td></td><td></td><td></td>
     </tr>
     <tr>
-        <td  >Thầy Đức – Taekwondo</td>
+        <td>Thầy Đức – Taekwondo</td>
         <td></td><td></td><td></td><td>X</td><td></td>
     </tr>
     <tr>
-        <td  >Thầy Thắng – Vovinam</td>
+        <td>Thầy Thắng – Vovinam</td>
         <td></td><td></td><td></td><td></td><td>X</td>
     </tr>
-
     <tr>
         <td>Bơi</td>
-        <td  >Cô Bích</td>
+        <td>Cô Bích</td>
         <td></td><td></td><td></td><td>X</td><td></td>
     </tr>
-
 </table>
-    <ul style="margin-left: 300px; margin-top: 70px; font-family: 'Segoe UI black'; font-size: 16px;">
-            <li><a href="tcn_toan.html" style="color:#334EAC" ><strong> Quay Lại</strong></a> </li>
-            <li><a href="index.html" style="color:#033E8C" ><strong> Trang Chủ</strong></a></li>
-    </ul>
+
+<ul>
+    <li><a href="tcn_toan.html"><strong>Quay Lại</strong></a></li>
+    <li><a href="index.html"><strong>Trang Chủ</strong></a></li>
+</ul>
+
 </body>
 </html>
